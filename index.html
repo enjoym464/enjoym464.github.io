@@ -1,0 +1,1298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>India's Great Freedom Fighters</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f7f7f7;
+    color:#222;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 7%;
+
+    background:rgba(255,255,255,.95);
+    box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#ff671f;
+}
+
+.logo span{
+    color:#138808;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ff671f;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 60px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ff671f 0%,
+        #ff671f 33%,
+        #fff 33%,
+        #fff 66%,
+        #138808 66%,
+        #138808 100%
+    );
+
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,.86);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:clamp(45px,8vw,90px);
+
+    background:linear-gradient(
+        90deg,
+        #ff671f,
+        #000080,
+        #138808
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    margin-bottom:20px;
+}
+
+.hero h2{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    line-height:1.7;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+
+    padding:15px 35px;
+
+    background:#ff671f;
+    color:#fff;
+
+    border-radius:50px;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+
+/* SECTION */
+
+section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#666;
+    font-size:18px;
+}
+
+
+/* FIGHTER CARDS */
+
+.fighters{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(270px,1fr));
+
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.1);
+
+    transition:.4s;
+
+    cursor:pointer;
+
+    border-top:5px solid #ff671f;
+}
+
+.card:nth-child(even){
+    border-top-color:#138808;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.02);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.2);
+}
+
+.fighter-image{
+    height:230px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:100px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff671f,
+        #fff,
+        #138808
+    );
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h3{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.7;
+}
+
+.read-more{
+    display:inline-block;
+
+    margin-top:18px;
+
+    color:#ff671f;
+    font-weight:bold;
+}
+
+
+/* MODAL */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:2000;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    padding:30px;
+
+    overflow-y:auto;
+}
+
+.modal.active{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-box{
+    width:100%;
+    max-width:900px;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    animation:popup .4s ease;
+}
+
+@keyframes popup{
+
+    from{
+        opacity:0;
+        transform:scale(.8) translateY(50px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+
+}
+
+.modal-header{
+    padding:45px 35px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff671f,
+        #fff,
+        #138808
+    );
+}
+
+.modal-emoji{
+    font-size:100px;
+    margin-bottom:15px;
+}
+
+.modal-header h2{
+    font-size:40px;
+    color:#000080;
+}
+
+.modal-body{
+    padding:35px;
+}
+
+.info-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:15px;
+
+    margin-bottom:30px;
+}
+
+.info{
+    padding:18px;
+
+    background:#f5f5f5;
+
+    border-radius:12px;
+}
+
+.info strong{
+    display:block;
+    color:#000080;
+    margin-bottom:6px;
+}
+
+.modal-body h3{
+    font-size:25px;
+
+    color:#ff671f;
+
+    margin:
+    25px 0 10px;
+}
+
+.modal-body p{
+    line-height:1.8;
+    color:#555;
+    font-size:17px;
+}
+
+.modal-body ul{
+    margin-left:25px;
+    line-height:2;
+    color:#555;
+}
+
+.quote{
+    margin-top:25px;
+
+    padding:25px;
+
+    border-left:5px solid #ff671f;
+
+    background:#fff7f1;
+
+    font-size:20px;
+
+    font-style:italic;
+}
+
+.close{
+    position:absolute;
+
+    right:20px;
+    top:15px;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+    z-index:5;
+}
+
+.close:hover{
+    background:#ff671f;
+    color:#fff;
+}
+
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+
+    padding:50px 20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff671f,
+        #000080,
+        #138808
+    );
+
+    color:white;
+}
+
+footer h2{
+    margin-bottom:15px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:15px 20px;
+    }
+
+    nav ul{
+        gap:10px;
+    }
+
+    nav a{
+        font-size:12px;
+    }
+
+    .hero h2{
+        font-size:25px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .modal{
+        padding:10px;
+    }
+
+    .modal-body{
+        padding:22px;
+    }
+
+    .modal-header{
+        padding:35px 20px;
+    }
+
+    .modal-header h2{
+        font-size:30px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        Bharat <span>🇮🇳</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#fighters">Heroes</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Heroes of India</h1>
+
+        <h2>Freedom Fighters of India 🇮🇳</h2>
+
+        <p>
+            Saluting the great heroes who dedicated their
+            lives to the freedom of our motherland.
+        </p>
+
+        <a href="#fighters" class="btn">
+            Explore Our Heroes ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- FIGHTERS -->
+
+<section id="fighters">
+
+    <div class="section-title">
+
+        <h2>Our Great Freedom Fighters</h2>
+
+        <p>
+            Click on any hero's card to learn more about their life,
+            contribution, achievements and legacy.
+        </p>
+
+    </div>
+
+
+    <div class="fighters">
+
+
+        <!-- GANDHI -->
+
+        <div class="card" onclick="openModal('gandhi')">
+
+            <div class="fighter-image">
+                🧔🏻
+            </div>
+
+            <div class="card-content">
+
+                <h3>Mahatma Gandhi</h3>
+
+                <p>
+                    A legendary leader who guided India's
+                    freedom movement through truth and non-violence.
+                </p>
+
+                <span class="read-more">
+                    Read Full Biography →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BHAGAT SINGH -->
+
+        <div class="card" onclick="openModal('bhagat')">
+
+            <div class="fighter-image">
+                🧑🏻‍🎓
+            </div>
+
+            <div class="card-content">
+
+                <h3>Bhagat Singh</h3>
+
+                <p>
+                    One of India's most famous revolutionaries
+                    and an inspiration for generations of young Indians.
+                </p>
+
+                <span class="read-more">
+                    Read Full Biography →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOSE -->
+
+        <div class="card" onclick="openModal('bose')">
+
+            <div class="fighter-image">
+                👨🏻‍✈️
+            </div>
+
+            <div class="card-content">
+
+                <h3>Subhas Chandra Bose</h3>
+
+                <p>
+                    Known as Netaji, he led the Indian National Army
+                    and fought for India's independence.
+                </p>
+
+                <span class="read-more">
+                    Read Full Biography →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- AZAD -->
+
+        <div class="card" onclick="openModal('azad')">
+
+            <div class="fighter-image">
+                🧔🏽
+            </div>
+
+            <div class="card-content">
+
+                <h3>Chandrashekhar Azad</h3>
+
+                <p>
+                    A fearless revolutionary who fought against
+                    British rule and inspired the revolutionary movement.
+                </p>
+
+                <span class="read-more">
+                    Read Full Biography →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- RANI -->
+
+        <div class="card" onclick="openModal('rani')">
+
+            <div class="fighter-image">
+                👩🏻
+            </div>
+
+            <div class="card-content">
+
+                <h3>Rani Lakshmibai</h3>
+
+                <p>
+                    The brave Queen of Jhansi who became a powerful
+                    symbol of courage during the uprising of 1857.
+                </p>
+
+                <span class="read-more">
+                    Read Full Biography →
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PATEL -->
+
+        <div class="card" onclick="openModal('patel')">
+
+            <div class="fighter-image">
+                👨🏻
+            </div>
+
+            <div class="card-content">
+
+                <h3>Sardar Vallabhbhai Patel</h3>
+
+                <p>
+                    Known as the Iron Man of India, he played a major
+                    role in India's freedom struggle and national integration.
+                </p>
+
+                <span class="read-more">
+                    Read Full Biography →
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= MODALS ================= -->
+
+
+<!-- GANDHI -->
+
+<div class="modal" id="gandhi">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('gandhi')">×</button>
+
+<div class="modal-header">
+
+<div class="modal-emoji">🧔🏻</div>
+
+<h2>Mahatma Gandhi</h2>
+
+</div>
+
+<div class="modal-body">
+
+<div class="info-grid">
+
+<div class="info">
+<strong>Full Name</strong>
+Mohandas Karamchand Gandhi
+</div>
+
+<div class="info">
+<strong>Born</strong>
+2 October 1869
+</div>
+
+<div class="info">
+<strong>Birthplace</strong>
+Porbandar, Gujarat
+</div>
+
+<div class="info">
+<strong>Died</strong>
+30 January 1948
+</div>
+
+</div>
+
+<h3>About Him</h3>
+
+<p>
+Mahatma Gandhi was one of the most influential leaders
+of India's freedom movement. He promoted truth,
+non-violence and civil disobedience as powerful methods
+of resistance against British rule.
+</p>
+
+<h3>Contribution to the Freedom Movement</h3>
+
+<ul>
+<li>Non-Cooperation Movement</li>
+<li>Salt March and Dandi March</li>
+<li>Quit India Movement</li>
+<li>Promotion of Satyagraha and non-violence</li>
+<li>Mobilization of ordinary Indians in the freedom struggle</li>
+</ul>
+
+<h3>Legacy</h3>
+
+<p>
+Gandhi's philosophy of non-violence influenced India's
+independence movement and inspired civil rights movements
+around the world.
+</p>
+
+<h3>Famous Thought</h3>
+
+<div class="quote">
+"Truth is God."
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- BHAGAT SINGH -->
+
+<div class="modal" id="bhagat">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('bhagat')">×</button>
+
+<div class="modal-header">
+
+<div class="modal-emoji">🧑🏻‍🎓</div>
+
+<h2>Bhagat Singh</h2>
+
+</div>
+
+<div class="modal-body">
+
+<div class="info-grid">
+
+<div class="info">
+<strong>Full Name</strong>
+Bhagat Singh
+</div>
+
+<div class="info">
+<strong>Born</strong>
+28 September 1907
+</div>
+
+<div class="info">
+<strong>Birthplace</strong>
+Banga, Punjab region
+</div>
+
+<div class="info">
+<strong>Martyrdom</strong>
+23 March 1931
+</div>
+
+</div>
+
+<h3>About Him</h3>
+
+<p>
+Bhagat Singh was one of India's most famous revolutionaries.
+From a very young age, he dedicated his life to the cause
+of India's independence and became a powerful symbol of
+courage and sacrifice.
+</p>
+
+<h3>Major Contributions</h3>
+
+<ul>
+<li>Associated with the Hindustan Socialist Republican Association</li>
+<li>Played an active role in revolutionary activities</li>
+<li>Participated in the Central Legislative Assembly bombing</li>
+<li>Fought for the rights of political prisoners</li>
+<li>Inspired millions of young Indians</li>
+</ul>
+
+<h3>Legacy</h3>
+
+<p>
+Bhagat Singh remains an enduring symbol of bravery,
+patriotism and revolutionary spirit among Indian youth.
+</p>
+
+<h3>Famous Slogan</h3>
+
+<div class="quote">
+"Inquilab Zindabad!"
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- BOSE -->
+
+<div class="modal" id="bose">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('bose')">×</button>
+
+<div class="modal-header">
+
+<div class="modal-emoji">👨🏻‍✈️</div>
+
+<h2>Subhas Chandra Bose</h2>
+
+</div>
+
+<div class="modal-body">
+
+<div class="info-grid">
+
+<div class="info">
+<strong>Popular Name</strong>
+Netaji
+</div>
+
+<div class="info">
+<strong>Born</strong>
+23 January 1897
+</div>
+
+<div class="info">
+<strong>Birthplace</strong>
+Cuttack, Odisha
+</div>
+
+<div class="info">
+<strong>Major Organization</strong>
+Indian National Army
+</div>
+
+</div>
+
+<h3>About Him</h3>
+
+<p>
+Subhas Chandra Bose was one of the major nationalist leaders
+of India's freedom movement. He believed that armed struggle
+could play an important role in achieving India's independence.
+</p>
+
+<h3>Indian National Army</h3>
+
+<p>
+Bose became the most prominent leader of the Indian National
+Army, also known as the Azad Hind Fauj. He sought to organize
+Indian forces to fight British rule and establish an independent India.
+</p>
+
+<h3>His Vision</h3>
+
+<p>
+Bose inspired Indians with his determination, leadership and
+strong commitment to complete independence.
+</p>
+
+<h3>Famous Slogan</h3>
+
+<div class="quote">
+"Give me blood, and I will give you freedom."
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- AZAD -->
+
+<div class="modal" id="azad">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('azad')">×</button>
+
+<div class="modal-header">
+
+<div class="modal-emoji">🧔🏽</div>
+
+<h2>Chandrashekhar Azad</h2>
+
+</div>
+
+<div class="modal-body">
+
+<div class="info-grid">
+
+<div class="info">
+<strong>Full Name</strong>
+Chandrashekhar Tiwari
+</div>
+
+<div class="info">
+<strong>Born</strong>
+23 July 1906
+</div>
+
+<div class="info">
+<strong>Birthplace</strong>
+Bhabra, Madhya Pradesh
+</div>
+
+<div class="info">
+<strong>Martyrdom</strong>
+27 February 1931
+</div>
+
+</div>
+
+<h3>About Him</h3>
+
+<p>
+Chandrashekhar Azad was a fearless revolutionary who
+played an important role in India's revolutionary movement.
+He dedicated his life to fighting against British rule.
+</p>
+
+<h3>Major Contributions</h3>
+
+<ul>
+<li>Associated with the Hindustan Republican Association</li>
+<li>Helped strengthen the revolutionary movement</li>
+<li>Worked alongside several revolutionary leaders</li>
+<li>Played an important role in organizing revolutionary activities</li>
+<li>Inspired young Indians with his courage</li>
+</ul>
+
+<h3>Legacy</h3>
+
+<p>
+Azad became famous for his determination to remain free
+and his refusal to surrender to British authorities.
+</p>
+
+<div class="quote">
+"I will face the enemy's bullets; I am free and will always remain free."
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- RANI LAKSHMIBAI -->
+
+<div class="modal" id="rani">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('rani')">×</button>
+
+<div class="modal-header">
+
+<div class="modal-emoji">👩🏻</div>
+
+<h2>Rani Lakshmibai</h2>
+
+</div>
+
+<div class="modal-body">
+
+<div class="info-grid">
+
+<div class="info">
+<strong>Name</strong>
+Rani Lakshmibai
+</div>
+
+<div class="info">
+<strong>Born</strong>
+19 November 1828
+</div>
+
+<div class="info">
+<strong>Birthplace</strong>
+Varanasi
+</div>
+
+<div class="info">
+<strong>Martyrdom</strong>
+18 June 1858
+</div>
+
+</div>
+
+<h3>About Her</h3>
+
+<p>
+Rani Lakshmibai was the Queen of Jhansi and became one
+of the most famous leaders associated with the uprising
+of 1857. She fought bravely against British forces.
+</p>
+
+<h3>Major Contributions</h3>
+
+<ul>
+<li>Defended the kingdom of Jhansi</li>
+<li>Played an important role in the uprising of 1857</li>
+<li>Resisted British expansion</li>
+<li>Demonstrated extraordinary courage and leadership</li>
+<li>Became a symbol of bravery for generations</li>
+</ul>
+
+<h3>Legacy</h3>
+
+<p>
+Rani Lakshmibai continues to be remembered as one of
+India's greatest symbols of courage, leadership and
+resistance.
+</p>
+
+<div class="quote">
+"I shall not surrender my Jhansi."
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- SARDAR PATEL -->
+
+<div class="modal" id="patel">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal('patel')">×</button>
+
+<div class="modal-header">
+
+<div class="modal-emoji">👨🏻</div>
+
+<h2>Sardar Vallabhbhai Patel</h2>
+
+</div>
+
+<div class="modal-body">
+
+<div class="info-grid">
+
+<div class="info">
+<strong>Full Name</strong>
+Vallabhbhai Jhaverbhai Patel
+</div>
+
+<div class="info">
+<strong>Born</strong>
+31 October 1875
+</div>
+
+<div class="info">
+<strong>Birthplace</strong>
+Nadiad, Gujarat
+</div>
+
+<div class="info">
+<strong>Popular Title</strong>
+Iron Man of India
+</div>
+
+</div>
+
+<h3>About Him</h3>
+
+<p>
+Sardar Vallabhbhai Patel was one of the important leaders
+of India's freedom movement. After independence, he played
+a crucial role in bringing many princely states together
+into the Indian Union.
+</p>
+
+<h3>Major Contributions</h3>
+
+<ul>
+<li>Played an important role in the Kheda Satyagraha</li>
+<li>Led the Bardoli Satyagraha</li>
+<li>Made a significant contribution to the freedom movement</li>
+<li>Played a major role in the integration of princely states</li>
+<li>Served as India's first Deputy Prime Minister and Home Minister</li>
+</ul>
+
+<h3>Legacy</h3>
+
+<p>
+Patel is remembered as the "Iron Man of India" for his
+strong leadership and his important role in the political
+integration of independent India.
+</p>
+
+<div class="quote">
+"Unity and integrity are among the greatest strengths of our nation."
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>🇮🇳 Jai Hind 🇮🇳</h2>
+
+<p>
+A heartfelt tribute to the brave freedom fighters of India.
+</p>
+
+<br>
+
+<p>
+Made with ❤️ for India
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* OPEN MODAL */
+
+function openModal(id){
+
+    document.getElementById(id)
+    .classList.add("active");
+
+    document.body.style.overflow="hidden";
+}
+
+
+/* CLOSE MODAL */
+
+function closeModal(id){
+
+    document.getElementById(id)
+    .classList.remove("active");
+
+    document.body.style.overflow="auto";
+}
+
+
+/* CLICK OUTSIDE TO CLOSE */
+
+document.querySelectorAll(".modal").forEach(function(modal){
+
+    modal.addEventListener("click",function(event){
+
+        if(event.target === modal){
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow="auto";
+        }
+
+    });
+
+});
+
+
+/* ESCAPE KEY */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        document.querySelectorAll(".modal")
+        .forEach(function(modal){
+
+            modal.classList.remove("active");
+
+        });
+
+        document.body.style.overflow="auto";
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
+```
